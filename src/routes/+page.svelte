@@ -1,2 +1,42 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	export let name;
+
+	function toggleName() {
+		if (name === "world") {
+			name = "Svelte";
+		} else {
+			name = "world";
+		}
+	}
+</script>
+
+<main>
+	<h1>Hello {name}!</h1>
+	<button on:click="{toggleName}">Toggle name</button>
+	<p>
+		Visit the <a href="https://learn.svelte.dev/">Svelte tutorial</a> to learn
+		how to build Svelte apps.
+	</p>
+</main>
+
+<style>
+    main {
+        text-align: center;
+        padding: 1em;
+        max-width: 240px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        color: #ff3e00;
+        text-transform: uppercase;
+        font-size: 4em;
+        font-weight: 100;
+    }
+
+    @media (min-width: 640px) {
+        main {
+            max-width: none;
+        }
+    }
+</style>
