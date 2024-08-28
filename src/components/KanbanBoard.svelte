@@ -1,24 +1,18 @@
 <script>
     import KanbanColumn from './KanbanColumn.svelte';
 
-    // Initialisierung der Spalten mit LocalStorage-Fallback
-    let columns = JSON.parse(localStorage.getItem('kanban-columns')) || [
+    // Kombinierte Struktur für Spalten und Aufgaben
+    let columns = [
         { id: 1, title: 'To Do', tasks: [] },
         { id: 2, title: 'In Bearbeitung', tasks: [] },
         { id: 3, title: 'In Überprüfung', tasks: [] },
         { id: 4, title: 'Erledigt', tasks: [] }
     ];
 
-    // Funktion zum Speichern der Spalten in LocalStorage
-    function saveToLocalStorage() {
-        localStorage.setItem('kanban-columns', JSON.stringify(columns));
-    }
-
     function addTask(columnId, taskText) {
         const column = columns.find(col => col.id === columnId);
         if (column) {
             column.tasks.push({ text: taskText });
-            saveToLocalStorage();
         }
     }
 
@@ -29,7 +23,6 @@
         if (column && newColumn) {
             const [task] = column.tasks.splice(taskIndex, 1);
             newColumn.tasks.push(task);
-            saveToLocalStorage();
         }
     }
 
@@ -37,7 +30,6 @@
         const column = columns.find(col => col.id === columnId);
         if (column) {
             column.tasks.splice(taskIndex, 1);
-            saveToLocalStorage();
         }
     }
 </script>
