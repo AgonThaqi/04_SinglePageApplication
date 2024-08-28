@@ -1,36 +1,42 @@
 <script>
     import KanbanColumn from './KanbanColumn.svelte';
+    import { syncedStore } from '$lib/syncedStore.js';
 
-    // Kombinierte Struktur für Spalten und Aufgaben
-    let columns = [
+    // Verwende den syncedStore für das Kanban-Board
+    const columns = syncedStore('kanban-columns', [
         { id: 1, title: 'To Do', tasks: [] },
         { id: 2, title: 'In Bearbeitung', tasks: [] },
         { id: 3, title: 'In Überprüfung', tasks: [] },
         { id: 4, title: 'Erledigt', tasks: [] }
-    ];
+    ]);
 
     function addTask(columnId, taskText) {
-        const column = columns.find(col => col.id === columnId);
-        if (column) {
+        columns.update(cols => {
+            const column = cols.find(col => col.id === columnId);
             column.tasks.push({ text: taskText });
-        }
+            return cols;
+        });
     }
 
     function moveTask(columnId, taskIndex, direction) {
-        const column = columns.find(col => col.id === columnId);
-        const newColumn = columns.find(col => col.id === columnId + direction);
+        columns.update(cols => {
+            const column = cols.find(col => col.id === columnId);
+            const newColumn = cols.find(col => col.id === columnId + direction);
 
-        if (column && newColumn) {
-            const [task] = column.tasks.splice(taskIndex, 1);
-            newColumn.tasks.push(task);
-        }
+            if (column && newColumn) {
+                const [task] = column.tasks.splice(taskIndex, 1);
+                newColumn.tasks.push(task);
+            }
+            return cols;
+        });
     }
 
     function deleteTask(columnId, taskIndex) {
-        const column = columns.find(col => col.id === columnId);
-        if (column) {
+        columns.update(cols => {
+            const column = cols.find(col => col.id === columnId);
             column.tasks.splice(taskIndex, 1);
-        }
+            return cols;
+        });
     }
 </script>
 
@@ -42,7 +48,7 @@
 </style>
 
 <div class="kanban-board">
-    {#each columns as column (column.id)}
+    {#each $columns as column (column.id)}
         <KanbanColumn
           {column}
           on:add-task={event => addTask(column.id, event.detail)}

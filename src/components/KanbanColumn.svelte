@@ -2,7 +2,7 @@
     import { createEventDispatcher } from 'svelte';
     import Task from './Task.svelte';
 
-    export let column;  // Die gesamte Spalte wird jetzt als Prop übergeben
+    export let column;
 
     const dispatch = createEventDispatcher();
 
