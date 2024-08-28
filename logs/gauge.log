@@ -1,0 +1,67 @@
+28-08-2024 10:05:34.913 [Gauge] [DEBUG] Created gauge_screenshots_dir at /Users/agon/TEKO/WebstormProjects/04_SinglePageApplication/.gauge/screenshots
+28-08-2024 10:05:34.913 [Gauge] [DEBUG] Plugin js is already installed.
+28-08-2024 10:05:34.914 [Gauge] [DEBUG] Plugin html-report is already installed.
+28-08-2024 10:05:34.914 [Gauge] [DEBUG] Parsing started.
+28-08-2024 10:05:34.914 [Gauge] [DEBUG] Started concepts parsing.
+28-08-2024 10:05:35.037 [Gauge] [DEBUG] 0 concepts parsing completed.
+28-08-2024 10:05:35.037 [Gauge] [DEBUG] Started specifications parsing.
+28-08-2024 10:05:35.038 [Gauge] [DEBUG] 1 specifications parsing completed.
+28-08-2024 10:05:35.038 [Gauge] [DEBUG] Parsing completed.
+28-08-2024 10:05:35.171 [Gauge] [DEBUG] Checking updates...
+28-08-2024 10:05:35.171 [Gauge] [DEBUG] Downloading https://downloads.gauge.org/plugin/html-report?l=js&p=html-report,js,screenshot&o=darwin&a=arm64
+28-08-2024 10:05:35.190 [js] [ERROR] node:internal/buffer:1066
+28-08-2024 10:05:35.190 [js] [ERROR] throw new ERR_BUFFER_OUT_OF_BOUNDS('length');
+28-08-2024 10:05:35.190 [js] [ERROR] ^
+28-08-2024 10:05:35.190 [js] [ERROR] RangeError [ERR_BUFFER_OUT_OF_BOUNDS]: "length" is outside of buffer bounds
+28-08-2024 10:05:35.190 [js] [ERROR] at proto.utf8Write (node:internal/buffer:1066:13)
+28-08-2024 10:05:35.190 [js] [ERROR] at Op.writeStringBuffer [as fn] (/Users/agon/.gauge/plugins/js/5.0.0/node_modules/protobufjs/src/writer_buffer.js:61:13)
+28-08-2024 10:05:35.190 [js] [ERROR] at BufferWriter.finish (/Users/agon/.gauge/plugins/js/5.0.0/node_modules/protobufjs/src/writer.js:453:14)
+28-08-2024 10:05:35.190 [js] [ERROR] at /Users/agon/.gauge/plugins/js/5.0.0/node_modules/@grpc/proto-loader/build/src/index.js:177:109
+28-08-2024 10:05:35.190 [js] [ERROR] at Array.map (<anonymous>)
+28-08-2024 10:05:35.190 [js] [ERROR] at createPackageDefinition (/Users/agon/.gauge/plugins/js/5.0.0/node_modules/@grpc/proto-loader/build/src/index.js:177:39)
+28-08-2024 10:05:35.190 [js] [ERROR] at Object.loadSync (/Users/agon/.gauge/plugins/js/5.0.0/node_modules/@grpc/proto-loader/build/src/index.js:223:12)
+28-08-2024 10:05:35.190 [js] [ERROR] at file:///Users/agon/.gauge/plugins/js/5.0.0/src/gauge.js:12:39
+28-08-2024 10:05:35.190 [js] [ERROR] at ModuleJob.run (node:internal/modules/esm/module_job:262:25)
+28-08-2024 10:05:35.190 [js] [ERROR] at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:482:26) {
+28-08-2024 10:05:35.190 [js] [ERROR] code: 'ERR_BUFFER_OUT_OF_BOUNDS'
+28-08-2024 10:05:35.190 [js] [ERROR] }
+28-08-2024 10:05:35.190 [js] [ERROR] Node.js v22.7.0
+28-08-2024 10:05:35.192 [Gauge] [DEBUG] Validation started.
+28-08-2024 10:05:35.193 [Gauge] [CRITICAL] Error: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/opt/homebrew/Cellar/go/1.22.6/libexec/src/runtime/debug/stack.go:24 +0x64
+main.recoverPanic()
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/gauge.go:27 +0x34
+panic({0x102c5d160?, 0x10321e700?})
+	/opt/homebrew/Cellar/go/1.22.6/libexec/src/runtime/panic.go:770 +0x124
+github.com/getgauge/gauge/runner.(*GrpcRunner).ExecuteMessageWithTimeout(0x14000264782?, 0x102c066a0?)
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/runner/grpcRunner.go:197 +0x18
+github.com/getgauge/gauge/validation.(*SpecValidator).validateStep(0x14000392000, 0x14000244b00)
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/validation/validate.go:345 +0x178
+github.com/getgauge/gauge/validation.(*SpecValidator).Step(0x14000392000, 0x14000244b00)
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/validation/validate.go:313 +0x310
+github.com/getgauge/gauge/gauge.(*Specification).Traverse(0x140001460c0, {0x102d563c0, 0x14000392000}, 0x14000049870)
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/gauge/specification.go:261 +0x214
+github.com/getgauge/gauge/validation.(*SpecValidator).validate(0x14000392000)
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/validation/validate.go:298 +0x54
+github.com/getgauge/gauge/validation.(*validator).Validate(0x140000499b8)
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/validation/validate.go:284 +0x10c
+github.com/getgauge/gauge/validation.ValidateSpecs({0x140001dd440, 0x1, 0x1}, 0x0)
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/validation/validate.go:174 +0x190
+github.com/getgauge/gauge/execution.init.func1({0x140001dd440, 0x1, 0x1})
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/execution/execute.go:108 +0x158
+github.com/getgauge/gauge/cmd.execute(0x103234300, {0x140001dd440, 0x1, 0x1})
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/cmd/run.go:241 +0x310
+github.com/getgauge/gauge/cmd.init.func12(0x103234300, {0x140001dd440, 0x1, 0x1})
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/cmd/run.go:90 +0x164
+github.com/spf13/cobra.(*Command).execute(0x103234300, {0x140001dd410, 0x1, 0x1})
+	/Users/brew/Library/Caches/Homebrew/go_mod_cache/pkg/mod/github.com/spf13/cobra@v1.8.1/command.go:989 +0x828
+github.com/spf13/cobra.(*Command).ExecuteC(0x103234e80)
+	/Users/brew/Library/Caches/Homebrew/go_mod_cache/pkg/mod/github.com/spf13/cobra@v1.8.1/command.go:1117 +0x344
+github.com/spf13/cobra.(*Command).Execute(...)
+	/Users/brew/Library/Caches/Homebrew/go_mod_cache/pkg/mod/github.com/spf13/cobra@v1.8.1/command.go:1041
+github.com/getgauge/gauge/cmd.Parse()
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/cmd/cmd.go:111 +0x30
+main.main()
+	/private/tmp/gauge-20240814-4621-50yz5z/gauge-1.6.8/gauge.go:19 +0x38
